@@ -1,13 +1,14 @@
+import { Dialog, DialogContent, DialogTitle } from "@mui/material";
 import React, { useState } from "react";
-import { AreaMap, DialogImage, Sidebar } from "../components";
 import { areas } from "../constants/areas";
+import { Sidebar, AreaMap, DialogImage } from "../components";
 
-export default function PrimeiroAndar() {
+export default function Terreo(props) {
   const [space, setSpace] = useState({
     name: "Térreo",
     image: "/terreo",
   });
-  const [url, setUrl] = useState("/primeiro_andar.png");
+  const [url, setUrl] = useState("/terreo.png");
   const [alt, setAlt] = useState("generic");
   const [open, setOpen] = useState(false);
 
@@ -33,12 +34,12 @@ export default function PrimeiroAndar() {
   };
 
   return (
-    <>
+    <div>
       <Sidebar />
 
-      <AreaMap alt={alt} url={url} handleOnClick={handleOnClick} title="Primeiro Andar" />
+      <AreaMap alt={alt} url={url} handleOnClick={handleOnClick} title="Térreo" />
 
       <DialogImage handleClose={handleClose} open={open} space={space} />
-    </>
+    </div>
   );
 }

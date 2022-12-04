@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { AreaMap, DialogImage, Sidebar } from "../components";
 import { areas } from "../constants/areas";
 
-export default function PrimeiroAndar() {
+export default function SegundoAndar() {
   const [space, setSpace] = useState({
-    name: "Térreo",
-    image: "/terreo",
+    name: "Segundo Andar",
+    image: "/segundo_andar",
   });
-  const [url, setUrl] = useState("/primeiro_andar.png");
+  const [url, setUrl] = useState("/segundo_andar.png");
   const [alt, setAlt] = useState("generic");
   const [open, setOpen] = useState(false);
 
@@ -36,7 +36,7 @@ export default function PrimeiroAndar() {
     <>
       <Sidebar />
 
-      <AreaMap alt={alt} url={url} handleOnClick={handleOnClick} title="Primeiro Andar" />
+      <AreaMap alt={alt} url={url} handleOnClick={handleOnClick} title="Segundo Andar" />
 
       <DialogImage handleClose={handleClose} open={open} space={space} />
     </>

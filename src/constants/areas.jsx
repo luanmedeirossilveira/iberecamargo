@@ -1,4 +1,4 @@
-import { LooksOne, SouthEast } from "@mui/icons-material";
+import { Home, Looks3, Looks4, LooksOne, LooksTwo, SouthEast } from "@mui/icons-material";
 
 export const areas = [
   {
@@ -21,13 +21,33 @@ export const drawerWidth = 240;
 
 export const menuList = [
   {
+    name: "Página Inicial",
+    icon: <Home />,
+    path: "/",
+  },
+  {
     name: "Térreo",
     icon: <SouthEast />,
-    path: "/",
+    path: "/terreo",
   },
   {
     name: "Primeiro Andar",
     icon: <LooksOne />,
     path: "/primeiroAndar",
+  },
+  {
+    name: "Segundo Andar",
+    icon: <LooksTwo />,
+    path: "/segundoAndar",
+  },
+  {
+    name: "Terceiro Andar",
+    icon: <Looks3 />,
+    path: "/terceiroAndar",
+  },
+  {
+    name: "Quarto Andar",
+    icon: <Looks4 />,
+    path: "/quartoAndar",
   },
 ];
