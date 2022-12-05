@@ -29,6 +29,10 @@ export default function Home() {
                 navegar entre suas áreas. Clique nos espaços abaixo para saber
                 mais.
               </Typography>
+
+              <a href="https://miro.com/app/board/uXjVPMwwV3g=/">
+                {'>>'}
+              </a>
             </Box>
           </Grid>
 
