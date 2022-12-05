@@ -6,9 +6,9 @@ import { Sidebar, AreaMap, DialogImage } from "../components";
 export default function Terreo(props) {
   const [space, setSpace] = useState({
     name: "Térreo",
-    image: "/terreo",
+    image: ["/terreo"],
   });
-  const [url, setUrl] = useState("/terreo.png");
+  const [url, setUrl] = useState(["/terreo.png"]);
   const [alt, setAlt] = useState("generic");
   const [open, setOpen] = useState(false);
 
@@ -37,7 +37,7 @@ export default function Terreo(props) {
     <div>
       <Sidebar />
 
-      <AreaMap alt={alt} url={url} handleOnClick={handleOnClick} title="Térreo" />
+      <AreaMap areas={areas} alt={alt} url={url} handleOnClick={handleOnClick} title="Térreo" />
 
       <DialogImage handleClose={handleClose} open={open} space={space} />
     </div>

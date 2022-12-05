@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 import { AreaMap, DialogImage, Sidebar } from "../components";
-import { areas } from "../constants/areas";
+import { areas1Andar } from "../constants/areas";
 
 export default function PrimeiroAndar() {
   const [space, setSpace] = useState({
     name: "Térreo",
-    image: "/terreo",
+    image: ["/terreo"],
   });
-  const [url, setUrl] = useState("/primeiro_andar.png");
+  const [url, setUrl] = useState(["/primeiro_andar.png"]);
   const [alt, setAlt] = useState("generic");
   const [open, setOpen] = useState(false);
 
   const handleOnClick = (e, idArea) => {
     e.preventDefault();
 
-    const area = areas
+    const area = areas1Andar
       .map((area) => (area.id === idArea ? area : null))
       .filter((area) => area !== null);
 
-    if (idArea === "biblioteca") {
+    if (idArea === "cafeteria") {
       console.log(area);
       setSpace(area[0]);
       setOpen(true);
-    } else if (idArea === "auditorio") {
+    } else if (idArea === "entrada") {
       setSpace(area[0]);
       setOpen(true);
     }
@@ -36,7 +36,7 @@ export default function PrimeiroAndar() {
     <>
       <Sidebar />
 
-      <AreaMap alt={alt} url={url} handleOnClick={handleOnClick} title="Primeiro Andar" />
+      <AreaMap areas={areas1Andar} alt={alt} url={url} handleOnClick={handleOnClick} title="Primeiro Andar" />
 
       <DialogImage handleClose={handleClose} open={open} space={space} />
     </>

@@ -1,9 +1,9 @@
 import { Chip, Divider, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { areas, drawerWidth } from "../constants/areas";
+import { drawerWidth } from "../constants/areas";
 
-export const AreaMap = ({ alt, handleOnClick, title, url }) => {
+export const AreaMap = ({ areas, alt, handleOnClick, title, url }) => {
   return (
     <Box paddingLeft={drawerWidth / 7} paddingTop={4}>
       <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
@@ -21,12 +21,15 @@ export const AreaMap = ({ alt, handleOnClick, title, url }) => {
                 sx={{
                   margin: 1,
                 }}
+                color="secondary"
               />
             ))}
           </Box>
         </Grid>
         <Grid item xs={12}>
-          <img src={url} height={480} width={710} alt={alt} useMap="#workmap" />
+          {url.map((src) => (
+            <img key={src} src={src} height={400} width={710} alt={alt} useMap="#workmap" />
+          ))}
           <map id="workmap" name="workmap">
             {areas.map((area) => (
               <area
@@ -35,7 +38,7 @@ export const AreaMap = ({ alt, handleOnClick, title, url }) => {
                 coords={area.coords}
                 alt={area.id}
                 href="#"
-                onMouseOver={(e) => handleOnClick(e, area.id)}
+                onClick={(e) => handleOnClick(e, area.id)}
               />
             ))}
           </map>

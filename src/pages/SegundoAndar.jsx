@@ -1,28 +1,25 @@
 import React, { useState } from "react";
 import { AreaMap, DialogImage, Sidebar } from "../components";
-import { areas } from "../constants/areas";
+import { areas2Andar } from "../constants/areas";
 
 export default function SegundoAndar() {
   const [space, setSpace] = useState({
     name: "Segundo Andar",
-    image: "/segundo_andar",
+    image: ["/segundo_andar"],
   });
-  const [url, setUrl] = useState("/segundo_andar.png");
+  const [url, setUrl] = useState(["/segundo_andar.png"]);
   const [alt, setAlt] = useState("generic");
   const [open, setOpen] = useState(false);
 
   const handleOnClick = (e, idArea) => {
     e.preventDefault();
 
-    const area = areas
+    const area = areas2Andar
       .map((area) => (area.id === idArea ? area : null))
       .filter((area) => area !== null);
 
-    if (idArea === "biblioteca") {
+    if (idArea === "sala1") {
       console.log(area);
-      setSpace(area[0]);
-      setOpen(true);
-    } else if (idArea === "auditorio") {
       setSpace(area[0]);
       setOpen(true);
     }
@@ -36,7 +33,13 @@ export default function SegundoAndar() {
     <>
       <Sidebar />
 
-      <AreaMap alt={alt} url={url} handleOnClick={handleOnClick} title="Segundo Andar" />
+      <AreaMap
+        areas={areas2Andar}
+        alt={alt}
+        url={url}
+        handleOnClick={handleOnClick}
+        title="Segundo/Terceiro/Quarto Andar"
+      />
 
       <DialogImage handleClose={handleClose} open={open} space={space} />
     </>
